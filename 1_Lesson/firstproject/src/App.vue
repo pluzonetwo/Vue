@@ -3,18 +3,21 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <Calc></Calc>
+<!--    <Keyboard></Keyboard>-->
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue';
 import Calc from './components/Calc.vue';
+// import Keyboard from './components/Keyboard.vue';
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
     Calc,
+    // Keyboard,
   },
 };
 </script>
