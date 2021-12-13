@@ -3,7 +3,6 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <Calc></Calc>
-<!--    <Keyboard></Keyboard>-->
   </div>
 </template>
 
@@ -30,5 +29,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.keyboard {
+  margin-top: 100px;
+}
+.checkbox {
+  margin-bottom: 10px;
 }
 </style>

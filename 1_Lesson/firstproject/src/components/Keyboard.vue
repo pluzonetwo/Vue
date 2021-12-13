@@ -1,7 +1,7 @@
 <template>
  <div>
    <div>
-     <input type="checkbox" id="keyboard" v-model="checked">
+     <input class="checkbox" type="checkbox" id="keyboard" v-model="checked">
      <label for="keyboard">Показать клавиатуру</label>
    </div>
    <div v-if="checked">

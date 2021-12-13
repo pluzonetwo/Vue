@@ -15,7 +15,15 @@
         :key="operator"
       >{{ operator }}</button>
     </div>
-    <Keyboard @input-value="addValue"></Keyboard>
+    <div>
+      <Keyboard class="keyboard" @input-value="addValue"></Keyboard>
+    </div>
+    <div>
+      <input type="radio" id="one" v-model="checkedOperand" value="1">
+      <label for="one">Первый операнд</label>
+      <input type="radio" id="two" v-model="checkedOperand" value="2">
+      <label for="two">Второй операнд</label>
+    </div>
   </div>
 </template>
 
@@ -26,12 +34,12 @@ export default {
   name: 'Calc.vue',
   components: { Keyboard },
   data: () => ({
-    operand1: 0,
-    operand2: 0,
+    operand1: '',
+    operand2: '',
+    checkedOperand: '',
     result: 0,
     error: '',
     operators: ['+', '-', '/', '*', '^', '//'],
-    numbers: [],
   }),
   methods: {
     sum() {
@@ -68,14 +76,17 @@ export default {
       }
     },
     addValue(symbol) {
-      this.numbers.push(symbol);
-      this.numbers.forEach((item) => {
-        if (typeof item === typeof Number) {
-          this.operand1 += item;
+      if (typeof symbol === 'number') {
+        if (this.checkedOperand === '1') {
+          this.operand1 += `${symbol}`;
         } else {
-          this.numbers.splice(this.numbers.length - 1, 1);
+          this.operand2 += `${symbol}`;
         }
-      });
+      } else if (this.checkedOperand === '1') {
+        this.operand1 = this.operand1.substring(0, this.operand1.length - 1);
+      } else {
+        this.operand2 = this.operand2.substring(0, this.operand2.length - 1);
+      }
     },
   },
 };
